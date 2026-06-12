@@ -1,4 +1,4 @@
-# Enterprise Network Design using Cisco Packet Tracer
+# Enterprise Network Design
 
 ## Project Overview
 
