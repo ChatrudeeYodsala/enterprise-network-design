@@ -1,14 +1,14 @@
-# Enterprise Network Design
+# Enterprise Network Design using Cisco Packet Tracer
 
 ## Project Overview
 
-This project demonstrates the design and implementation of a simulated enterprise network using Cisco Packet Tracer. The network is designed to reflect a real-world organizational structure with multiple departments, VLAN segmentation, inter-VLAN communication using Router-on-a-Stick architecture, centralized DHCP services, and network security using ACLs.
+This project demonstrates the design and implementation of a simulated enterprise network using Cisco Packet Tracer. The network is designed to reflect a real-world organizational structure with multiple departments, VLAN segmentation, inter-VLAN communication using Router-on-a-Stick architecture, centralized DHCP services, and ACL-based security policies.
 
-The main objective of this project is to apply enterprise-level networking concepts including switching, routing, IP management, and security policies.
+The main objective of this project is to apply enterprise networking concepts including switching, routing, IP management, and network security in a realistic environment.
 
 ## Network Topology
 
-The network follows a hierarchical design model:
+The network follows a hierarchical design model consisting of:
 
 - Core Layer (Core Switch)
 - Distribution Layer (Router)
@@ -23,9 +23,9 @@ The network follows a hierarchical design model:
 - Multiple End Devices (PCs)
 - 1 × Enterprise Server (DHCP Server)
 
-### Topology Structure
+## Network Diagram
 
-End Devices → Access Switches → Core Switch → Router → Server / Other VLANs
+![Network Topology](screenshots/01-network-topology-design.png)
 
 ## VLAN Design
 
@@ -59,14 +59,14 @@ Each subinterface uses IEEE 802.1Q encapsulation.
 
 A centralized DHCP server is used to automatically assign IP addresses to all end devices.
 
-Each VLAN has a dedicated DHCP pool configured with:
+Each VLAN has a dedicated DHCP pool containing:
 
 - Default Gateway
 - Subnet Mask
 - IP Address Range
 - DNS Server
 
-This removes the need for manual IP configuration on each device.
+This eliminates manual IP configuration and simulates real enterprise environments.
 
 ## DHCP Relay Configuration
 
@@ -78,44 +78,34 @@ This enables centralized IP management across all VLANs.
 
 ## Switching Configuration
 
-### Core Switch Configuration
-
-- VLANs 10, 20, 30, 40, 50 created on all switches
-- Trunk links configured using IEEE 802.1Q
-- Access ports assigned per department
-
-### Access Switch Configuration
-
-- HR-PC → VLAN 20
-- IT-PC → VLAN 30
-- Sales-PC → VLAN 40
-- Management-PC → VLAN 10
-- Server → VLAN 50
+- VLANs 10, 20, 30, 40, 50 are configured on all switches
+- Trunk links use IEEE 802.1Q encapsulation
+- Access ports are assigned to respective VLANs per department
 
 ## ACL Security Implementation
 
-Access Control Lists (ACLs) were implemented on router R1 to control inter-VLAN communication.
+Access Control Lists (ACLs) are implemented on Router R1 to control inter-VLAN traffic.
 
 ### Security Policies
 
 - HR is restricted from accessing IT network
-- Sales is allowed to access only Server network
+- Sales is restricted to Server access only
 - Management has full access to all VLANs
 
-### ACL Configuration Summary
+### ACL Behavior
 
-Extended ACLs were applied on router subinterfaces to filter traffic between VLANs based on source and destination IP addresses.
+Traffic is filtered based on source and destination IP addresses to enforce network security policies.
 
 ## Testing & Verification
 
-Network functionality was tested using the following methods:
+The network was tested using the following methods:
 
-- Successful DHCP IP assignment on all PCs
+- Successful DHCP IP assignment for all devices
 - Inter-VLAN communication using ICMP (ping)
-- ACL enforcement verified using blocked and allowed ping tests
-- Router subinterface and trunk link verification
+- ACL enforcement verified by blocked and allowed traffic tests
+- Router subinterface and trunk verification
 
-All tests confirmed correct network operation.
+All tests confirmed proper network operation.
 
 ## Network Traffic Flow
 
@@ -142,14 +132,22 @@ Through this project, the following skills were developed:
 - Enterprise network design and segmentation
 - VLAN configuration and management
 - Inter-VLAN routing implementation
-- DHCP server setup and management
+- DHCP server setup and automation
 - DHCP relay configuration
 - Network security using ACLs
 - Network troubleshooting and verification
 
+## Final Summary
+
+This project demonstrates a complete enterprise network implementation using Cisco Packet Tracer.
+
+It integrates VLAN segmentation, inter-VLAN routing, DHCP services, and ACL-based security policies into a unified network design that simulates real-world enterprise environments.
+
+The project reflects practical networking skills suitable for junior network engineering roles.
+
 ## Future Improvements
 
 - Implement STP optimization for redundancy
-- Add network monitoring (SNMP/Syslog)
-- Implement firewall integration
+- Add network monitoring using SNMP/Syslog
+- Simulate firewall-based segmentation
 - Introduce dynamic routing protocols (OSPF/EIGRP)
