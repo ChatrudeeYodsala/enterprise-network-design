@@ -29,3 +29,11 @@ This project demonstrates the design and implementation of an enterprise network
 | 30   | IT         | 192.168.30.0/24 |
 | 40   | Sales      | 192.168.40.0/24 |
 | 50   | Server     | 192.168.50.0/24 |
+
+## Current Features
+
+* Enterprise network topology design
+* VLAN segmentation
+* Access port configuration
+* Trunk link configuration between switches
+
